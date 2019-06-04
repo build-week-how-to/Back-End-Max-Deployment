@@ -1,0 +1,37 @@
+{
+  "name": "back-end-max",
+  "version": "1.0.0",
+  "description": "How to back end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/build-week-how-to/Back-End-Max.git"
+  },
+  "author": "Max Gunter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/build-week-how-to/Back-End-Max/issues"
+  },
+  "homepage": "https://github.com/build-week-how-to/Back-End-Max#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-knex": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.17.3",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.8"
+  },
+  "devDependencies": {
+    "knex-cleaner": "^1.1.4",
+    "nodemon": "^1.19.1"
+  }
+}
