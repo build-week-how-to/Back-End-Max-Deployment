@@ -1,4 +1,5 @@
 
+//SEEDS ⬇︎
 exports.seed = function(knex, Promise) {
   return knex('steps').insert([
     {

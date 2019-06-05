@@ -2,11 +2,11 @@
 //IMPORTS ⬇︎
 const express = require( 'express' );
 const howtos = require( './howtoModel' );
-const restricted = require( '../auth/restricted' );
 const router = express.Router();
 
 //GET ALL HOWTOS ⬇︎
-router.get( '/' , restricted , ( req , res ) => {
+router.get( '/' , ( req , res ) => {
+
     howtos.get()
     .then( howto => {
         res.status( 200 ).json( howto );
@@ -14,10 +14,12 @@ router.get( '/' , restricted , ( req , res ) => {
     .catch( error => {
         res.status( 500 ).json({ message: 'Server error getting all How tos' , error });
     })
+
 });
 
 //GET HOWTO BY ID ⬇︎
-router.get( '/:id' , restricted , ( req , res ) => {
+router.get( '/:id' , ( req , res ) => {
+
     const { id } = req.params;
     howtos.get( id )
     .then( howto => {
@@ -26,10 +28,12 @@ router.get( '/:id' , restricted , ( req , res ) => {
     .catch( error => {
         res.status( 500 ).json({ message: 'Server error getting individual How To' , error })
     })
+
 });
 
 //ADD A HOWTO ⬇︎
-router.post( '/', restricted , async ( req, res ) => {
+router.post( '/' , async ( req, res ) => {
+
     console.log( req.body )
     try {
         const howto = await howtos.insert( req.body );
@@ -38,10 +42,12 @@ router.post( '/', restricted , async ( req, res ) => {
         console.log( error );
         res.status( 500 ).send( '500' );
     }
+
 });
 
 //DELETE A HOW TO ⬇︎
-router.delete( '/:id' , restricted , ( req, res ) => {
+router.delete( '/:id' , ( req, res ) => {
+
     const { id } = req.params;
     howtos.remove( id )
     .then( count => {
@@ -54,10 +60,12 @@ router.delete( '/:id' , restricted , ( req, res ) => {
     .catch( error => {
         res.status( 500 ).json({ message: 'Server error deleting HowTo' , error });
     })
+
 });
 
 //UPDATE HOWTO ⬇︎
-router.put( '/:id' , restricted , ( req , res ) => {
+router.put( '/:id' , ( req , res ) => {
+
     const { id } = req.params;
     const howto = req.body;
         try {
@@ -70,6 +78,7 @@ router.put( '/:id' , restricted , ( req , res ) => {
         } catch ( error ) {
             res.status( 404 ).json({ message: 'How To not found' , error });
         }
+        
 });
 
 //EXPORTS ⬇︎

@@ -1,6 +1,7 @@
 
 //TABLE SETUP ⬇︎
 exports.up = function(knex, Promise) {
+
     return knex.schema.createTable( 'users' , users => {
         users.increments();
         users
@@ -11,9 +12,12 @@ exports.up = function(knex, Promise) {
             .string( 'password' , 128 )
             .notNullable();
     });
+
 };
 
 //DROP IF EXISTS ⬇︎
 exports.down = function(knex, Promise) {
+
     return knex.schema.dropTableIfExists( 'users' );
+    
 };

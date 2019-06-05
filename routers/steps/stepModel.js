@@ -1,9 +1,9 @@
 
-//IMPORTS
+//IMPORTS ⬇︎
 const db = require('../../data/dbConfig.js');
 const map = require('../../data/helpers/mappers');
 
-//EXPORTS
+//EXPORTS ⬇︎
 module.exports = {
     get,
     add,
@@ -11,8 +11,9 @@ module.exports = {
     remove
 }
 
-//GET ALL ACTIONS
+//GET ALL ACTIONS ⬇︎
 function get( id ) {
+
     let query = db( 'steps' );
     if ( id ) {
         return query
@@ -23,23 +24,33 @@ function get( id ) {
     return query.then( steps => {
         return steps.map( step => map.toggleStep( step ))
     })
+
 };
     
+//ADD STEPS ⬇︎
 function add (step) {
+
     return db('steps')
         .insert(step)
         .then(([id]) => this.get(id));
+
 };
 
+//UPDATE STEPS ⬇︎
 function update (id, changes) {
+
     return db('steps')
         .where( 'id' , id)
         .update(changes)
         .then(count => (count > 0 ? this.get(id) : null));
+
 };
 
+//DELET STEPS ⬇︎
 function remove (id) {
+
     return db('steps')
         .where('id', id)
         .del();
+        
 };

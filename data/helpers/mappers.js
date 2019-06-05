@@ -6,7 +6,7 @@ module.exports = {
     toggleStep
 };
 
-//FUNCTIONS ⬇︎
+//MAPPING HOW TO ⬇︎
 function howtoToBody( howto ) {
     const result = {
         ...howto
@@ -21,12 +21,14 @@ function howtoToBody( howto ) {
     return result;
 }
 
+//MAPPING STEPS TO BODY ⬇︎
 function stepsToBody( step ) {
     return {
         ...step
     }
 }
 
+//TOGGLE STEPS ⬇︎
 function toggleStep ( howto ) {
     const result = {
         ...howto
